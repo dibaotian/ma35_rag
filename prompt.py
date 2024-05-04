@@ -23,6 +23,15 @@ def load_data(embeded_model):
 
 def init_query(response_mode,reranker_model,template1,template2):
     oClient.init_query(response_mode,reranker_model,template1,template2)
+
+def set_prompt(response_mode):
+    template1,template2 = oClient.set_prompt(response_mode)
+    return template1,template2
+
+def rank_model_init():
+    rank_model = oClient.rank_model_init()
+    return rank_model
+
     
 
 # def initLLM(pcap_data) -> None:

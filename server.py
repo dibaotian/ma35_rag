@@ -70,6 +70,16 @@ with st.sidebar:
         st.session_state.prev_selected_model = selected_embedding_model
         load_data(selected_embedding_model)
 
+    if 'prev_selected_response' not in st.session_state:
+        st.session_state.prev_selected_response = response_mode_options[1]
+
+    # Check if the selected response has changed
+    if st.session_state.prev_selected_response != selected_response_mode:
+        st.session_state.prev_selected_response = selected_response_mode
+        template1,template2=set_prompt(selected_response_mode)
+        reranker_model = rank_model_init()
+        query_engine = init_query(selected_response_mode, reranker_model,template1,template2)
+
 
 
 # main page

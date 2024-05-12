@@ -84,7 +84,7 @@ with st.sidebar:
 
 # main page
 with st.chat_message(name='assistant'):
-    st.markdown('I am ma35d expert, please ask you question')
+    st.markdown('I am ma35d expert, please ask your question')
 for message in st.session_state.messages:
     with st.chat_message(name=message['role']):
         st.markdown(message['content'])
